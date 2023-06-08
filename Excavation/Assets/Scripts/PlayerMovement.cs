@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 1.5f;
-    private float jumpPower = 2.5f;
+    private float speed = 1f;
+    private float jumpPower = 2f;
     private bool isFacingRight = true;
 
     private float coyoteTime = 0.1f;
     private float coyoteTimeCounter;
+
+    private float jumpBufferTime = 0.1f;
+    private float jumpBufferCounter;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -18,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -36,7 +39,17 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && coyoteTimeCounter > 0)
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
         {
             Jump();
 
