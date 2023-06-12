@@ -427,7 +427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11935636496480235, guid: c90c3d2c236a842af9cf4d90e9d39680, type: 3}
       propertyPath: respawn
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c90c3d2c236a842af9cf4d90e9d39680, type: 3}
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8ddfcad40ea408fb57c8708e734c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawn: 1
+  respawn: 4
 --- !u!61 &1719449586
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -869,7 +869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ff6bdf730be4daf9b8825fbbdd8004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: 2
+  nextLevel: 5
 --- !u!61 &1868433663
 BoxCollider2D:
   m_ObjectHideFlags: 0

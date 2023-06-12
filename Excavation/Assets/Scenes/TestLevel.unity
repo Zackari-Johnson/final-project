@@ -310,7 +310,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2593120534359464647, guid: 5225c440211904d3c958c867db18cfc3, type: 3}
       propertyPath: respawn
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2593120534359464648, guid: 5225c440211904d3c958c867db18cfc3, type: 3}
       propertyPath: m_RootOrder
@@ -788,7 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ff6bdf730be4daf9b8825fbbdd8004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: 1
+  nextLevel: 4
 --- !u!61 &1200774188
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -932,7 +932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11935636496480235, guid: c90c3d2c236a842af9cf4d90e9d39680, type: 3}
       propertyPath: respawn
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c90c3d2c236a842af9cf4d90e9d39680, type: 3}
@@ -1284,7 +1284,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2593120534359464647, guid: 5225c440211904d3c958c867db18cfc3, type: 3}
       propertyPath: respawn
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2593120534359464648, guid: 5225c440211904d3c958c867db18cfc3, type: 3}
       propertyPath: m_RootOrder
