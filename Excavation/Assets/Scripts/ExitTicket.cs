@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ExitTicket : MonoBehaviour
 {
-    public int nextLevel;
 
     void Start()
     {
@@ -21,7 +20,7 @@ public class ExitTicket : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(nextLevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

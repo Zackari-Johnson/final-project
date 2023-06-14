@@ -18,8 +18,6 @@ public class CountDownTimer : MonoBehaviour
     public Color startColor;
     public Color endColor;
 
-    public int currentScene;
-
     void Start()
     {
         currentTime = startingTime;
@@ -71,6 +69,6 @@ public class CountDownTimer : MonoBehaviour
 
     void OnTimeout()
     {
-        SceneManager.LoadScene(currentScene);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
