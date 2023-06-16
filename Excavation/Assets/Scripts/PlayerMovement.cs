@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 1f;
-    private float jumpPower = 2f;
+    public float speed = 4f;
+    public float jumpPower = 8f;
     private bool isFacingRight = true;
 
     private float coyoteTime = 0.1f;
