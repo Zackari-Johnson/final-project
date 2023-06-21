@@ -1,95 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float horizontal;
-    public float speed = 4f;
-    public float jumpPower = 8f;
-    private bool isFacingRight = true;
+    public PlayerController controller;
 
-    private float coyoteTime = 0.1f;
-    private float coyoteTimeCounter;
+    public float moveSpeed = 40f;
 
-    private float jumpBufferTime = 0.1f;
-    private float jumpBufferCounter;
+    float horizontalInput = 0f;
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+    bool jump = false;
+    bool cancelJump = false;
 
-    void Start()
-    {
+    public float coyoteTime = 0.2f;
+    private float coyoteTimer;
+    public float bufferTime = 0.3f;
+    private float bufferTimer;
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        horizontalInput = Input.GetAxisRaw("Horizontal") * moveSpeed;
 
-        if (IsGrounded())
+        if (Input.GetButtonDown("Jump"))
         {
-            coyoteTimeCounter = coyoteTime;
+            jump = true;
         }
 
-        else
+        if (Input.GetButtonUp("Jump"))
         {
-            coyoteTimeCounter -= Time.deltaTime;
+            cancelJump = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            jumpBufferCounter = jumpBufferTime;
-        }
-
-        else
-        {
-            jumpBufferCounter -= Time.deltaTime;
-        }
-
-        if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
-        {
-            Jump();
-
-            coyoteTimeCounter = 0f;
-        }
-
-
-        if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.333f);
-        }
-
-        Flip();
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-    }
-
-
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.01f, groundLayer);
-    }
-
-
-    private void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
-    }
-
-    private void Jump()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        controller.Move(horizontalInput * Time.fixedDeltaTime, jump, cancelJump);
+        jump = false;
+        cancelJump = false;
     }
 }

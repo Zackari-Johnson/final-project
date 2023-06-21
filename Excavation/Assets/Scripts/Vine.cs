@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Vine : MonoBehaviour
 {
-    public Rigidbody2D hook;
-    public GameObject[] prefabVineSegs;
-    public int numLinks = 5;
-    private GameObject newSeg;
+    public Rigidbody2D vineBase;
+    [SerializeField] private GameObject[] prefabVineSegs;
+    [SerializeField] private GameObject prefabBaseSeg;
+    [SerializeField] private GameObject prefabHookSeg;
+    [Range(2, 100)] public int numLinks;
 
     void Start()
     {
@@ -16,36 +15,35 @@ public class Vine : MonoBehaviour
 
     void GenerateVine()
     {
-        Rigidbody2D prevBod = hook;
+        Rigidbody2D prevBod = vineBase;
+        GameObject newSeg;
+        HingeJoint2D hj;
 
-        for (int i = 0; i < numLinks; i++)
-        {
-            newSeg = Instantiate(prefabVineSegs[0]);
-            //if (i == 0)
-            //{
-            //    newSeg = Instantiate(prefabVineSegs[0]);
-            //}
+        for (int i = 0; i < numLinks -2; i++)
+        { 
+            int index = Random.Range(0, prefabVineSegs.Length);
 
-            //if (i > 0 && i < numLinks - 1)
-            //{
-            //    newSeg = Instantiate(prefabVineSegs[1]);
-            //}
-
-            //if (i == numLinks - 1)
-            //{
-            //    newSeg = Instantiate(prefabVineSegs[2]);
-            //}
+            if (i == 0)
+            {
+                newSeg = Instantiate(prefabBaseSeg);
+            }
+            else
+            {
+                newSeg = Instantiate(prefabVineSegs[index]);
+            }
 
             newSeg.transform.parent = transform;
             newSeg.transform.position = transform.position;
-            HingeJoint2D hj = newSeg.GetComponent<HingeJoint2D>();
+            hj = newSeg.GetComponent<HingeJoint2D>();
             hj.connectedBody = prevBod;
 
             prevBod = newSeg.GetComponent<Rigidbody2D>();
-
-            Debug.Log(i.ToString());
-
         }
-    }
 
+        newSeg = Instantiate(prefabHookSeg);
+        newSeg.transform.parent = transform;
+        newSeg.transform.position = transform.position;
+        hj = newSeg.GetComponent<HingeJoint2D>();
+        hj.connectedBody = prevBod;
+    }
 }
