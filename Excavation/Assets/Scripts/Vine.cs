@@ -6,7 +6,7 @@ public class Vine : MonoBehaviour
     [SerializeField] private GameObject[] prefabVineSegs;
     [SerializeField] private GameObject prefabBaseSeg;
     [SerializeField] private GameObject prefabHookSeg;
-    [Range(2, 100)] public int numLinks;
+    [Range(3, 32)] public int numLinks;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class Vine : MonoBehaviour
         GameObject newSeg;
         HingeJoint2D hj;
 
-        for (int i = 0; i < numLinks -2; i++)
+        for (int i = 0; i < numLinks -1; i++)
         { 
             int index = Random.Range(0, prefabVineSegs.Length);
 

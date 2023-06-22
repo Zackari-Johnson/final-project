@@ -10,11 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 
-    [SerializeField] private float coyoteTime = 0.05f;
-    [SerializeField] private float bufferTime = 0.03f;
-    private float coyoteTimer;
-    private float bufferTimer;
-
     const float k_GroundedRadius = 0.3f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
     private bool isJumping;
@@ -65,7 +60,6 @@ public class PlayerController : MonoBehaviour
     {
 
        
-        Debug.Log(bufferTimer);
 
         if (m_Grounded || m_AirControl)
         {
@@ -86,36 +80,12 @@ public class PlayerController : MonoBehaviour
         }
 
         
-        if (m_Grounded)
+        if (m_Grounded && jump && !isJumping)
         {
-            coyoteTimer = coyoteTime;
-            Debug.Log("grounded");
-        }
-
-        else
-        {
-            coyoteTimer -= Time.deltaTime;
-        }
-
-        if (jump)
-        {
-            bufferTimer = bufferTime;
-        }
-
-        bufferTimer -= Time.deltaTime;
-
-
-
-        
-        if (coyoteTimer > 0 && bufferTimer > 0 && !isJumping)
-        {
-            coyoteTimer = 0f;
-            bufferTimer = 0f;
             m_Grounded = false;
             isJumping = true;
             m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-            //this is the actual jump function. This will help the player be able to move more fluidly.
         }
 
         if (m_Rigidbody2D.velocity.y < 0)
@@ -124,8 +94,9 @@ public class PlayerController : MonoBehaviour
         }
 
         if (cancelJump && isJumping)
-        {
+        { 
             m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_Rigidbody2D.velocity.y / 2);
+            
         }
 
         

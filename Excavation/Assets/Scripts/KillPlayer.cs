@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
-{ 
+{
 
     void Start()
     {

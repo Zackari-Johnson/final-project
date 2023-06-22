@@ -101,14 +101,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_LinearDrag: 0.25
+  m_AngularDrag: 0.25
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!233 &8287531334128508209
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -131,8 +131,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 60
-    m_UpperAngle: -60
+    m_LowerAngle: 0
+    m_UpperAngle: 0
 --- !u!61 &9191632585081793407
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,3 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedAbove: {fileID: 0}
   connectedBelow: {fileID: 0}
+  isPlayerAttached: 0

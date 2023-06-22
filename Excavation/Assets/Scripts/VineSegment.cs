@@ -3,6 +3,7 @@ using UnityEngine;
 public class VineSegment : MonoBehaviour
 {
     public GameObject connectedAbove, connectedBelow;
+    public bool isPlayerAttached;
 
     void Start()
     {
