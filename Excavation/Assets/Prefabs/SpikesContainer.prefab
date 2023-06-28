@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spikePrefab: {fileID: 8766814390795228377, guid: 3c5aabbd160374c009d7d001e212869a, type: 3}
   numSpikes: 4
+  rotation: 0

@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 7346693060836814243}
-  moveSpeed: 30
+  moveSpeed: 35
   coyoteTime: 0.2
   bufferTime: 0.3
 --- !u!233 &4090114602956546473
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2547708187905734006}
-  pushForce: 6
+  pushForce: 7.5
   attached: 0
   attachedTo: {fileID: 0}
 --- !u!1 &4565135250109988890

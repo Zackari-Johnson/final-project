@@ -79,16 +79,10 @@ public class ShroomPad : MonoBehaviour
 
     void BouncePlayer(Collider2D body)
     {
-        Rigidbody2D rb = body.GetComponent<Rigidbody2D>();
-
-        if (!isExtended)
+        if (body.CompareTag("Player"))
         {
+            Rigidbody2D rb = body.GetComponent<Rigidbody2D>();
             rb.velocity = new Vector2(rb.velocity.x, bounceForce);
-        }
-        else
-        {
-            rb.velocity = new Vector2(rb.velocity.x, bounceForce / 2);
-        }
-       
+        } 
     }
 }

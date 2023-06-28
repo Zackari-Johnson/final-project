@@ -6,11 +6,13 @@ using UnityEngine;
 public class SpikesContainer : MonoBehaviour
 {
     [SerializeField] private GameObject spikePrefab;
-    public int numSpikes;
+    [SerializeField] private int numSpikes;
+    [Range(0, 4)][SerializeField] private int rotation;
 
     void Start()
     {
         GenerateSpikes();
+        gameObject.transform.eulerAngles = Vector3.forward * rotation * 90;
     }
 
     void GenerateSpikes()

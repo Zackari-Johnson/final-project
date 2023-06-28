@@ -75,6 +75,7 @@ public class VineSwing : MonoBehaviour
         hj.connectedBody = null;
 
         rb.velocity = new Vector2(rb.velocity.x, 1.5f * Mathf.Abs(rb.velocity.x) + rb.velocity.y);
+        rb.AddForce(new Vector2(rb.velocity.x, 0));
     }
 
     void OnTriggerEnter2D(Collider2D col)
