@@ -4,60 +4,83 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public GameObject pointA;
-    public GameObject pointB;
+    public float baseSpeed;
+    public bool lerp;
+    [Range(0, 2)] public float easiness;
+    [Range(0, 2)] public float peakSpeed;
+    [Range(0, 1)] public float partiality;
+    public float waitTime;
+    private float waitTimer;
 
-    private Rigidbody2D rb;
-    private Transform currentPoint;
+    private float lerpSpeed;
+    public int startingPoint;
+    public Transform[] points;
 
-    public float moveSpeed = 0.5f;
+    private int i;
 
-    public float waitTime = 1.5f;
-    public float waitCounter;
-
-   
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        currentPoint = pointB.transform;
+        transform.position = points[startingPoint].position;
     }
 
     
     void Update()
     {
-        Vector2 point = currentPoint.position - transform.position;
-
-        if (waitCounter == 0)
+        if (Vector2.Distance(transform.position, points[i].position) < 0.01f)
         {
-            if (currentPoint == pointB.transform)
+            i++;
+
+            if (waitTimer == 0)
             {
-                rb.velocity = new Vector2(0, -moveSpeed);
+                waitTimer = waitTime;
             }
-            else
+            if (i == points.Length)
             {
-                rb.velocity = new Vector2(0, moveSpeed);
+                i = 0;
             }
         }
 
-        if (Vector2.Distance(transform.position, currentPoint.position) <= 0.05f && currentPoint == pointB.transform)
+        if (waitTimer > 0)
         {
-            waitCounter = waitTime;
-            currentPoint = pointA.transform;
-        }
-        if (Vector2.Distance(transform.position, currentPoint.position) <= 0.05f && currentPoint == pointA.transform)
-        {
-            waitCounter = waitTime;
-            currentPoint = pointB.transform;
-        }
-
-        if (waitCounter > 0)
-        {
-            waitCounter -= Time.deltaTime;
+            waitTimer -= Time.deltaTime;
         }
         else
         {
-            waitCounter = 0;
+            waitTimer = 0;
         }
 
+        if (waitTimer <= 0)
+        {
+            if (lerp)
+            {
+                lerpSpeed = easiness * baseSpeed * Vector2.Distance(transform.position, points[i].position);
+                lerpSpeed += (Vector2.Distance(transform.position, points[i].position) / baseSpeed) * peakSpeed;
+                lerpSpeed = lerpSpeed * partiality + baseSpeed * (1 - partiality);
+
+                transform.position = Vector2.MoveTowards(transform.position, points[i].position, lerpSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, points[i].position, baseSpeed * Time.deltaTime);
+            }
+
+            
+        }
+
+        
+
+        Debug.Log(waitTimer);
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.transform.SetParent(null);
+        collision.transform.SetParent(transform);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.transform.SetParent(null);
     }
 }

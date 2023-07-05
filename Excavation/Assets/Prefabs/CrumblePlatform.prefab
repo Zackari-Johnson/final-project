@@ -284,5 +284,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallDelay: 0.333
-  destroyDelay: 1
+  destroyDelay: 0.75
   rb: {fileID: 5788368134007257301}

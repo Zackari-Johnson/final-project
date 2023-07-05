@@ -12,23 +12,21 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool cancelJump = false;
 
-    public float coyoteTime = 0.2f;
-    private float coyoteTimer;
-    public float bufferTime = 0.3f;
-    private float bufferTimer;
-
     void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal") * moveSpeed;
-
-        if (Input.GetButtonDown("Jump"))
+        if (!PauseMenu.isPaused)
         {
-            jump = true;
-        }
+            horizontalInput = Input.GetAxisRaw("Horizontal") * moveSpeed;
 
-        if (Input.GetButtonUp("Jump"))
-        {
-            cancelJump = true;
+            if (Input.GetButtonDown("Jump"))
+            {
+                jump = true;
+            }
+
+            if (Input.GetButtonUp("Jump"))
+            {
+                cancelJump = true;
+            }
         }
     }
 

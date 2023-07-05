@@ -33,11 +33,16 @@ public class CoinCollectable : MonoBehaviour
         sr.sprite = frames[1];
         yield return new WaitForSeconds(keyTimes[1]); // 150 ms
         sr.sprite = frames[2];
-        yield return new WaitForSeconds(keyTimes[2]); // 100 ms
+        yield return new WaitForSeconds(keyTimes[2]); // 100 ms 
         sr.sprite = frames[3];
         yield return new WaitForSeconds(keyTimes[3]); // 150 ms
 
         isSpinning = false;
 
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Destroy(gameObject, 0);
     }
 }

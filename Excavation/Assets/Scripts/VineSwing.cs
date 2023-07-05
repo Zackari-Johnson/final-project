@@ -36,24 +36,28 @@ public class VineSwing : MonoBehaviour
             rb.AddRelativeForce(new Vector3(horizontalInput, 0, 0) * pushForce);
         }
 
-        if (Input.GetButtonUp("Jump"))
+        if (!PauseMenu.isPaused)
         {
-            Detach();
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (collisions > 0)
+            if (Input.GetButtonUp("Jump"))
             {
-                if (!attached)  
+                Detach();
+            }
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                if (collisions > 0)
                 {
-                    if (attachedTo != collideObj.gameObject.transform.parent)
+                    if (!attached)
                     {
-                        Attach(collideObj.gameObject.GetComponent<Rigidbody2D>());
+                        if (attachedTo != collideObj.gameObject.transform.parent)
+                        {
+                            Attach(collideObj.gameObject.GetComponent<Rigidbody2D>());
+                        }
                     }
                 }
             }
         }
+       
     }
     
     public void Attach(Rigidbody2D vineBone)

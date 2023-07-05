@@ -1244,7 +1244,7 @@ GameObject:
   - component: {fileID: 2039888400}
   - component: {fileID: 2039888399}
   m_Layer: 5
-  m_Name: Excavation
+  m_Name: "Monkey. \U0001F412\U0001F412"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
