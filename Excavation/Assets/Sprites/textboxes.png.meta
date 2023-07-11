@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5fafac66f0a9547dbab659e051837165
+guid: 395c25e007ae348b986b4b3ae7f949d2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,10 +45,10 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 6
-  spritePivot: {x: 0, y: 0}
-  spritePixelsToUnits: 8
-  spriteBorder: {x: 0, y: 0, z: 4, w: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -117,22 +117,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spikes_0
+      name: textboxes_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 3
-        height: 8
-      alignment: 6
+        y: 32
+        width: 128
+        height: 32
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c3c804124b1045fcbe6f0728e701e9e
-      internalID: 1038022179
+      spriteID: 74b73414ab82f4c9eb9ec058dbd8b066
+      internalID: -619292214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: textboxes_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fb2dc0bd8cf8453ba9a33c19aea51dc
+      internalID: -506608667
       vertices: []
       indices: 
       edges: []
@@ -141,14 +162,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spikes_0: 1038022179
+      textboxes_1: -506608667
+      textboxes_0: -619292214
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

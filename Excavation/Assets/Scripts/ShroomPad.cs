@@ -10,6 +10,7 @@ public class ShroomPad : MonoBehaviour
     [SerializeField] private Sprite[] frames;
     [SerializeField] float[] keyTimes;
     [SerializeField] float waitTime;
+
     private float waitTimer;
 
     public float bounceForce;

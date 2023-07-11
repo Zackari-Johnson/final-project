@@ -23,7 +23,6 @@ public class VineSwing : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(rb.velocity.x);
         CheckKeyboardInputs();
     }
 

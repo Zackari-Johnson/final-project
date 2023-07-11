@@ -136,4 +136,7 @@ MonoBehaviour:
   - 0.2
   - 0.1
   waitTime: 1.5
+  up: 0
+  left: 0
+  right: 1
   bounceForce: 28

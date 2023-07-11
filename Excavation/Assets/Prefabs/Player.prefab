@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 4090114602956546473}
   - component: {fileID: 3358794894121638511}
   - component: {fileID: 7061174463393891689}
+  - component: {fileID: 3449752190103882837}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -272,13 +273,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 800
-  m_MovementSmoothing: 0.1
+  m_MovementSmoothing: 0
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 64
   m_GroundCheck: {fileID: 6275485577598912664}
   m_CeilingCheck: {fileID: 2577131812502202889}
+  m_Rigidbody2D: {fileID: 0}
+  targetVelocity: {x: 0, y: 0, z: 0}
+  externalInput: {x: 0, y: 0}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -296,8 +300,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 7346693060836814243}
   moveSpeed: 35
-  coyoteTime: 0.2
-  bufferTime: 0.3
 --- !u!233 &4090114602956546473
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -354,6 +356,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.47}
   m_Size: {x: 0.5, y: 0.05}
   m_Direction: 1
+--- !u!114 &3449752190103882837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2547708187905734003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a412abc8041de4a53b0cd5e65334ca69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottomBound: 10
 --- !u!1 &3001190643897199082
 GameObject:
   m_ObjectHideFlags: 0

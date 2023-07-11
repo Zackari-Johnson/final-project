@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5fafac66f0a9547dbab659e051837165
+guid: 6c418ed38a5f44674a233109b6da8c3f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,10 +45,10 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 6
-  spritePivot: {x: 0, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 8
-  spriteBorder: {x: 0, y: 0, z: 4, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -117,22 +117,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spikes_0
+      name: grass
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 3
+        width: 7
         height: 8
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c3c804124b1045fcbe6f0728e701e9e
-      internalID: 1038022179
+      spriteID: 72524b8b7a03843c3be7092dddfd8bf4
+      internalID: 363497806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_flower
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 8
+        width: 3
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2525d37c80844e8a4b030f7b05ec4a
+      internalID: -1703482338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daisies
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 8
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e5388bbc43014ab88b3525106726bcb
+      internalID: 2027385595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprout
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d4dd1f07e9d4f4e81cee509fe84803
+      internalID: -46553578
       vertices: []
       indices: 
       edges: []
@@ -141,14 +204,17 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spikes_0: 1038022179
+      grass: 363497806
+      daisies: 2027385595
+      sprout: -46553578
+      red_flower: -1703482338
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

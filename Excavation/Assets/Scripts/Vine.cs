@@ -10,8 +10,12 @@ public class Vine : MonoBehaviour
 
     void Start()
     {
-        gameObject.transform.GetChild(0).GetComponent<HingeJoint2D>().connectedAnchor = gameObject.transform.position;
         GenerateVine();
+    }
+
+    private void Update()
+    {
+        gameObject.transform.GetChild(0).GetComponent<HingeJoint2D>().connectedAnchor = gameObject.transform.position;
     }
 
     void GenerateVine()
