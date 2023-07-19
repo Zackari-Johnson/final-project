@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 707b2e877940e438ca760843a398c5ba
+guid: 814c4673317214f6ab87cea1ebc17f23
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mushroompad_0
+      name: door-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
-        height: 8
+        width: 10
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a13602b58761403b8ba81d8353f462a
-      internalID: -1084344116
+      spriteID: 0461217b069bd48bfa1d44f7aa1f27dc
+      internalID: -60948759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mushroompad_1
+      name: door-spritesheet_1
       rect:
         serializedVersion: 2
-        x: 8
+        x: 11
         y: 0
-        width: 8
-        height: 8
+        width: 10
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47f482626e8cb428db50c2372d4c104d
-      internalID: -1897514455
+      spriteID: 9c9435af06f404d1080745c11e583cad
+      internalID: 1880470780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mushroompad_2
+      name: door-spritesheet_2
       rect:
         serializedVersion: 2
-        x: 16
+        x: 22
         y: 0
-        width: 8
-        height: 8
+        width: 10
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44fb72b4364cb4ad19eb1de824c3d24b
-      internalID: -999586128
+      spriteID: e7947bc0fd4b8428db3ac637d6edcef6
+      internalID: -895200491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mushroompad_3
+      name: door-spritesheet_3
       rect:
         serializedVersion: 2
-        x: 24
+        x: 33
         y: 0
-        width: 8
-        height: 8
+        width: 10
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,29 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36525c9975ba34e2ab5206680eae1217
-      internalID: 181082562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mushroompad_4
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c6be4fbea1a845ef97535661a8e7a8e
-      internalID: 1053286460
+      spriteID: b6ad52323d3f14f0684178cd95112947
+      internalID: -96188837
       vertices: []
       indices: 
       edges: []
@@ -232,11 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mushroompad_3: 181082562
-      mushroompad_1: -1897514455
-      mushroompad_4: 1053286460
-      mushroompad_2: -999586128
-      mushroompad_0: -1084344116
+      door-spritesheet_3: -96188837
+      door-spritesheet_0: -60948759
+      door-spritesheet_2: -895200491
+      door-spritesheet_1: 1880470780
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

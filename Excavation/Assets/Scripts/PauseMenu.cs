@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
     
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Escape))
+       if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab))
         {
             if (isPaused)
             {
@@ -46,7 +46,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("0_ Main Menu");
         isPaused = false;
     }
 

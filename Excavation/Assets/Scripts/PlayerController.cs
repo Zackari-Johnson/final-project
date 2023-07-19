@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
+    [SerializeField] private ParticleSystem dustPS;
+    [SerializeField] private ParticleSystem grassPS;
+
+    public static bool isDead = false;
 
     const float k_GroundedRadius = 0.2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
@@ -29,6 +33,10 @@ public class PlayerController : MonoBehaviour
     public class BoolEvent : UnityEvent<bool> { }
 
 
+    private void Start()
+    {
+        isDead = false;
+    }
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -60,16 +68,15 @@ public class PlayerController : MonoBehaviour
 
     public void Move(float move, bool jump, bool cancelJump)
     {
-
        
-
         if (m_Grounded || m_AirControl)
         {
             targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y) + externalInput;
             
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
-           
+            
+
             if (move > 0 && !m_FacingRight)
             { 
                 Flip();
@@ -88,6 +95,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            dustPS.Play();
         }
 
         if (m_Rigidbody2D.velocity.y < 0)
@@ -95,10 +103,35 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
         }
 
-        if (cancelJump && isJumping)
+        if (cancelJump && isJumping && SettingsMenu.difficulty % 2 == 1)
         { 
             m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_Rigidbody2D.velocity.y / 2);
             
+        }
+
+        if (targetVelocity.x != 0)
+        {
+            if (m_Grounded)
+            {
+                if (!grassPS.isPlaying)
+                {
+                   grassPS.Play();
+                }
+            }
+            else if (!m_Grounded)
+            {
+                if (grassPS.isPlaying)
+                {
+                    grassPS.Stop();
+                }
+            }
+            else if (targetVelocity.x == 0)
+            {
+                if (grassPS.isPlaying)
+                {
+                    grassPS.Stop();
+                }
+            }
         }
 
         

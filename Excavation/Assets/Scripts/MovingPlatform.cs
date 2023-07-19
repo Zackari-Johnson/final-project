@@ -87,12 +87,12 @@ public class MovingPlatform : MonoBehaviour
         isPlayerOn = true;
 
         player = collision.GetComponent<PlayerController>();
-
         
     }
 
     private void OnTriggerExit2D(Collider2D collision)
-    {   
+    {
+       
         player.externalInput = new Vector2(0, 0);
         isPlayerOn = false;
         player = null;

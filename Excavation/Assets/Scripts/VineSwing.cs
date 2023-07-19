@@ -37,26 +37,48 @@ public class VineSwing : MonoBehaviour
 
         if (!PauseMenu.isPaused)
         {
-            if (Input.GetButtonUp("Jump"))
+            if (Input.GetButtonUp("Jump") && attached)
             {
                 Detach();
             }
 
-            if (Input.GetButtonDown("Jump"))
+            if(SettingsMenu.difficulty % 2 == 0)
             {
-                if (collisions > 0)
+                if (Input.GetButton("Jump"))
                 {
-                    if (!attached)
+                    if (collisions > 0)
                     {
-                        if (attachedTo != collideObj.gameObject.transform.parent)
+                        if (!attached)
                         {
-                            Attach(collideObj.gameObject.GetComponent<Rigidbody2D>());
+                            if (attachedTo != collideObj.gameObject.transform.parent)
+                            {
+                                Attach(collideObj.gameObject.GetComponent<Rigidbody2D>());
+                            }
                         }
                     }
                 }
             }
+
+            else if (SettingsMenu.difficulty % 2 == 1)
+            {
+                if (Input.GetButtonDown("Jump"))
+                {
+                    if (collisions > 0)
+                    {
+                        if (!attached)
+                        {
+                            if (attachedTo != collideObj.gameObject.transform.parent)
+                            {
+                                Attach(collideObj.gameObject.GetComponent<Rigidbody2D>());
+                            }
+                        }
+                    }
+                }
+            }
+
+
         }
-       
+
     }
     
     public void Attach(Rigidbody2D vineBone)
@@ -77,7 +99,7 @@ public class VineSwing : MonoBehaviour
         hj.enabled = false;
         hj.connectedBody = null;
 
-        rb.velocity = new Vector2(rb.velocity.x, 1.5f * Mathf.Abs(rb.velocity.x) + rb.velocity.y);
+        rb.velocity = new Vector2(rb.velocity.x * 2f, 1.5f * Mathf.Abs(rb.velocity.x) + 3f * rb.velocity.y);
         rb.AddForce(new Vector2(rb.velocity.x, 0));
     }
 

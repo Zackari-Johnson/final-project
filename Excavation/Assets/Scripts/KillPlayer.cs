@@ -8,7 +8,7 @@ public class KillPlayer : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
    
@@ -19,8 +19,10 @@ public class KillPlayer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !PlayerController.isDead)
         {
+            StatManager.deathCount += 1;
+            PlayerController.isDead = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

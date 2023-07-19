@@ -7,11 +7,19 @@ public class MainMenu : MonoBehaviour
 {
    public void Play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Level 1");
+        StatManager.coinCount = 0;
+        StatManager.deathCount = 0;
+        StatManager.timeElapsed = 0;
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void Settings()
+    {
+        SceneManager.LoadScene("0_ Settings Menu");
     }
 }
