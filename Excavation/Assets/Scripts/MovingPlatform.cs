@@ -83,18 +83,22 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
+        {
+            isPlayerOn = true;
 
-        isPlayerOn = true;
-
-        player = collision.GetComponent<PlayerController>();
+            player = collision.GetComponent<PlayerController>();
+        }
         
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-       
-        player.externalInput = new Vector2(0, 0);
-        isPlayerOn = false;
-        player = null;
+       if (collision.CompareTag("Player"))
+        {
+            player.externalInput = new Vector2(0, 0);
+            isPlayerOn = false;
+            player = null;
+        }
     }
 }

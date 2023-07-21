@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class StatManager : MonoBehaviour
 {
+    public static float highScore = 0;
+    public static float score = 0;
+
     public static int coinCount = 0;
     public static int deathCount = 0;
     public static float timeElapsed = 0;
@@ -38,5 +41,7 @@ public class StatManager : MonoBehaviour
         }
 
         timeText.text = min + ":" + sec;
+
+        
     }
 }

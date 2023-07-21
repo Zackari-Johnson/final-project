@@ -859,6 +859,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 2317447855928701421, guid: 513dc27a590aa4be48ffd07510256c2a, type: 3}
+      propertyPath: hasCoin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317447855928701421, guid: 513dc27a590aa4be48ffd07510256c2a, type: 3}
+      propertyPath: coinCollectable
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 513dc27a590aa4be48ffd07510256c2a, type: 3}
 --- !u!1001 &2140155102

@@ -8,13 +8,17 @@ public class SettingsMenu : MonoBehaviour
 {
     public static int difficulty;
     [SerializeField] private TMP_Text difText;
-    private string[] difStrings = { "Hard", "Easy" };
+    private string[] difStrings = { "Easy", "Hard" };
 
     public void ChangeDifficulty()
     {
         difficulty += 1;
-        difText.text = difStrings[difficulty % 2];
 
+    }
+
+    public void Update()
+    {
+        difText.text = difStrings[difficulty % 2];
     }
 
     public void Back()
